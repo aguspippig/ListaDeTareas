@@ -5,6 +5,9 @@
 package ejercicioextra1;
 
 import java.util.ArrayList;
+import vistas.AgregarTareaView;
+import vistas.EditarTareaView;
+import vistas.ListaView;
 
 /**
  *
@@ -13,6 +16,8 @@ import java.util.ArrayList;
 public class ListaDeTareas extends javax.swing.JFrame {
     
     public static ArrayList<String> listaDeTareas = new ArrayList<String>();
+    
+    public static ArrayList<String> listaDeTareasCompletas = new ArrayList<>();
 
     /**
      * Creates new form ListaDeTareas
@@ -30,21 +35,122 @@ public class ListaDeTareas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        escritorio = new javax.swing.JDesktopPane();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jmAdmin = new javax.swing.JMenu();
+        jmiAgregar = new javax.swing.JMenuItem();
+        jmiVer = new javax.swing.JMenuItem();
+        jmConsulta = new javax.swing.JMenu();
+        jmiEditar = new javax.swing.JMenuItem();
+        jmiEliminar = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        escritorio.setPreferredSize(new java.awt.Dimension(1000, 800));
+
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1067, Short.MAX_VALUE)
+        );
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 581, Short.MAX_VALUE)
+        );
+
+        jmAdmin.setText("Admin");
+
+        jmiAgregar.setText("Agregar tarea");
+        jmiAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAgregarActionPerformed(evt);
+            }
+        });
+        jmAdmin.add(jmiAgregar);
+
+        jmiVer.setText("Ver lista");
+        jmiVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiVerActionPerformed(evt);
+            }
+        });
+        jmAdmin.add(jmiVer);
+
+        jMenuBar1.add(jmAdmin);
+
+        jmConsulta.setText("Editar");
+
+        jmiEditar.setText("Editar tarea");
+        jmiEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiEditarActionPerformed(evt);
+            }
+        });
+        jmConsulta.add(jmiEditar);
+
+        jmiEliminar.setText("Eliminar tarea");
+        jmConsulta.add(jmiEliminar);
+
+        jMenuBar1.add(jmConsulta);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1067, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 454, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jmiAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        
+        AgregarTareaView atv = new AgregarTareaView();
+        
+        atv.setVisible(true);
+        
+        escritorio.add(atv);
+        
+        escritorio.moveToFront(atv);
+    }//GEN-LAST:event_jmiAgregarActionPerformed
+
+    private void jmiVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVerActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        
+        ListaView lv = new ListaView();
+        
+        lv.setVisible(true);
+        
+        escritorio.add(lv);
+        
+        escritorio.moveToFront(lv);
+    }//GEN-LAST:event_jmiVerActionPerformed
+
+    private void jmiEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEditarActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        
+        EditarTareaView etv = new EditarTareaView();
+        
+        etv.setVisible(true);
+        
+        escritorio.add(etv);
+        
+        escritorio.moveToFront(etv);
+    }//GEN-LAST:event_jmiEditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -82,5 +188,13 @@ public class ListaDeTareas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jmAdmin;
+    private javax.swing.JMenu jmConsulta;
+    private javax.swing.JMenuItem jmiAgregar;
+    private javax.swing.JMenuItem jmiEditar;
+    private javax.swing.JMenuItem jmiEliminar;
+    private javax.swing.JMenuItem jmiVer;
     // End of variables declaration//GEN-END:variables
 }
