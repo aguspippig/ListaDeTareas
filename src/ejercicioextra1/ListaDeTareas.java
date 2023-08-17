@@ -52,11 +52,11 @@ public class ListaDeTareas extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1067, Short.MAX_VALUE)
+            .addGap(0, 852, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 581, Short.MAX_VALUE)
+            .addGap(0, 661, Short.MAX_VALUE)
         );
 
         jmAdmin.setText("Admin");
@@ -90,6 +90,11 @@ public class ListaDeTareas extends javax.swing.JFrame {
         jmConsulta.add(jmiEditar);
 
         jmiEliminar.setText("Eliminar tarea");
+        jmiEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiEliminarActionPerformed(evt);
+            }
+        });
         jmConsulta.add(jmiEliminar);
 
         jMenuBar1.add(jmConsulta);
@@ -100,11 +105,13 @@ public class ListaDeTareas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1067, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 852, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -151,6 +158,20 @@ public class ListaDeTareas extends javax.swing.JFrame {
         
         escritorio.moveToFront(etv);
     }//GEN-LAST:event_jmiEditarActionPerformed
+
+    private void jmiEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEliminarActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        
+        EditarTareaView etv = new EditarTareaView();
+        
+        etv.setVisible(true);
+        
+        escritorio.add(etv);
+        
+        escritorio.moveToFront(etv);
+    }//GEN-LAST:event_jmiEliminarActionPerformed
 
     /**
      * @param args the command line arguments
