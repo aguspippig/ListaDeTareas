@@ -7,6 +7,7 @@ package ejercicioextra1;
 import java.util.ArrayList;
 import vistas.AgregarTareaView;
 import vistas.EditarTareaView;
+import vistas.EliminarTareaView;
 import vistas.ListaView;
 
 /**
@@ -164,7 +165,7 @@ public class ListaDeTareas extends javax.swing.JFrame {
         escritorio.removeAll();
         escritorio.repaint();
         
-        EditarTareaView etv = new EditarTareaView();
+        EliminarTareaView etv = new EliminarTareaView();
         
         etv.setVisible(true);
         
